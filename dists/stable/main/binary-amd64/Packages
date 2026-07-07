@@ -1,0 +1,21 @@
+Package: mkcd
+Architecture: all
+Version: 0.1.0
+Priority: optional
+Section: utils
+Maintainer: Lirone Fitoussi <lironefit@gmail.com>
+Depends:
+Filename: pool/main/m/mkcd/mkcd_0.1.0_all.deb
+Size: 3004
+MD5sum: b0b3e9c3780f9f5ac772c959b94889b2
+SHA1: c5d575f1ad6d70543829303f369f711a751da6f4
+SHA256: 4982b4f26162d00d0ae59fccf4100ecec87af2d724e730c252c08074a8cb9ac5
+SHA512: fbe1bd3416a7dc3343351a769300e1019798048353a68a41d562fc9cb4e00e21336d9ef9a57e822ae4f50ed447896a4472809f716ea69f098bfa0a108ac1ecf2
+Homepage: https://github.com/lironefitoussi/mkcd
+Description: Create a directory and cd into it, in one command
+ mkcd is a small POSIX shell function that creates a directory
+ (including parents) and changes into it in a single step.
+ .
+ After installing, add to your shell rc file:
+   source /usr/share/mkcd/mkcd.sh
+
