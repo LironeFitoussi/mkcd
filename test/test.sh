@@ -1,5 +1,9 @@
 #!/bin/sh
 # Tests for mkcd.sh. Run: sh test/test.sh
+#
+# assert() takes the test expression as a string and evals it, so vars are
+# deliberately referenced inside single quotes — silence the false positives.
+# shellcheck disable=SC1007,SC2016,SC2034,SC2164
 set -u
 
 here=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
