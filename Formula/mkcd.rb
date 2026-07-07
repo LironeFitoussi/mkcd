@@ -1,8 +1,8 @@
 class Mkcd < Formula
   desc "Create a directory and cd into it, in one command"
-  homepage "https://github.com/lironefitoussi/mkcd"
-  url "https://github.com/lironefitoussi/mkcd/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "REPLACE_WITH_TARBALL_SHA256" # shasum -a 256 v0.1.0.tar.gz
+  homepage "https://github.com/LironeFitoussi/mkcd"
+  url "https://github.com/LironeFitoussi/mkcd/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "4899e1f6c2b3f89731547e98740e78a9113ad397acf399c88f23ef975d916c40"
   license "MIT"
 
   def install
