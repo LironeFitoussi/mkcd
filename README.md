@@ -21,12 +21,16 @@ echo "source $(brew --prefix)/share/mkcd/mkcd.sh" >> ~/.zshrc   # or ~/.bashrc
 
 ### apt (Debian / Ubuntu)
 
-Download the `.deb` from the [latest release](https://github.com/lironefitoussi/mkcd/releases), then:
-
 ```sh
-sudo apt install ./mkcd_0.1.0_all.deb
+curl -fsSL https://lironefitoussi.github.io/mkcd/gpg.key \
+  | sudo gpg --dearmor -o /usr/share/keyrings/mkcd-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/mkcd-archive-keyring.gpg] https://lironefitoussi.github.io/mkcd stable main" \
+  | sudo tee /etc/apt/sources.list.d/mkcd.list
+sudo apt update && sudo apt install mkcd
 echo "source /usr/share/mkcd/mkcd.sh" >> ~/.bashrc   # or ~/.zshrc
 ```
+
+(Standalone `.deb` also attached to each [release](https://github.com/LironeFitoussi/mkcd/releases).)
 
 ### Manual
 
@@ -60,8 +64,9 @@ make lint    # shellcheck
 ## Releasing
 
 1. Bump version in `mkcd.sh` and `packaging/debian/control`.
-2. Tag: `git tag v0.x.0 && git push --tags`. CI builds the `.deb` and
-   attaches it to the GitHub release.
+2. Tag: `git tag v0.x.0 && git push --tags`. CI builds the `.deb`,
+   attaches it to the GitHub release, and republishes the signed APT
+   repository to GitHub Pages (signing key: `APT_GPG_PRIVATE_KEY` secret).
 3. Homebrew: update `url` + `sha256` in `Formula/mkcd.rb`
    (`shasum -a 256` on the release tarball) and push the formula to
    your `homebrew-tap` repo.
