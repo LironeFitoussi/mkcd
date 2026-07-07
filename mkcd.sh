@@ -25,6 +25,7 @@ mkcd() {
         return 2
     fi
 
+    # shellcheck disable=SC2164  # cd's status is the function's return value
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
@@ -33,5 +34,6 @@ if [ -n "${ZSH_VERSION-}" ]; then
     # No-op if compinit hasn't run yet.
     compdef _directories mkcd 2>/dev/null || true
 elif [ -n "${BASH_VERSION-}" ]; then
+    # shellcheck disable=SC3044  # only reached in bash
     complete -o dirnames -o nospace mkcd 2>/dev/null || true
 fi
